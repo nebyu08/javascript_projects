@@ -22,8 +22,21 @@ console.log(fresult)
 //calculating the total amount that you need to pay with tip included
 
 let tipCalculator=function(total,tipPercent=.2){
-    return total*tipPercent
+     let percent=tipPercent*100
+     let tip=total*tipPercent
+   return `total value:${total}$,tip percent ${tipPercent*100}% and tip value is ${tip}$`
+    //return total*p
+
 }
 
-let tip=tipCalculator(345,.3)
-console.log("tip is: ",tip)
+let message=tipCalculator(50,.3)
+//console.log("tip is: ",tip)
+//console.log(`tip is ${tip}`)
+
+console.log(message)
+
+
+//lets play around with templat string
+let temp="ussop"
+
+console.log(`i am a pirate and my name is ${temp}!!!`)
