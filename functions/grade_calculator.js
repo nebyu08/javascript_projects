@@ -1,5 +1,5 @@
-let studenGrade=function(scoreStudent,totalScore){
-    let score=(scoreStudent/totalScore)*100
+const studenGrade=function(scoreStudent,totalScore){
+    const score=(scoreStudent/totalScore)*100
     let gradeLetter=''
 
     if(score>=90 && score<=100){
@@ -22,7 +22,7 @@ let studenGrade=function(scoreStudent,totalScore){
 }
 
 //lets test the function
-let dummy_score=4
-let dummy_tot=20
-let result=studenGrade(dummy_score,dummy_tot)
+const dummy_score=4
+const dummy_tot=20
+const result=studenGrade(dummy_score,dummy_tot)
 console.log(result)
