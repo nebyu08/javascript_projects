@@ -24,4 +24,9 @@ todo.shift()
 //display
 console.log(`'you have ${todo.length} of todo's`)
 
-console.log(todo)
+//console.log(todo)
+//lets print out the output lists
+
+todo.forEach(function(item,index){
+    console.log(`${index+1} --> ${item}`)
+})
