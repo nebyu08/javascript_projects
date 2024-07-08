@@ -40,7 +40,12 @@ console.log(temp)
 //lets start looping over arrays
 const array1=[1,2,3,4,5]
 
-array1.forEach(function(item,index){
-   console.log(`index ${index}`)
-   console.log(`value:${item} `)
-})
+// array1.forEach(function(item,index){
+//    console.log(`index ${index}`)
+//    console.log(`value:${item} `)
+// })
+
+//lets loop using for loop
+for(let count=0;count<array1.length;count+=1){
+    console.log(`${count+1}.${array1[count]}`)
+}

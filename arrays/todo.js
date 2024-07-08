@@ -27,6 +27,12 @@ console.log(`'you have ${todo.length} of todo's`)
 //console.log(todo)
 //lets print out the output lists
 
-todo.forEach(function(item,index){
-    console.log(`${index+1} --> ${item}`)
-})
+// todo.forEach(function(item,index){
+//     console.log(`${index+1} --> ${item}`)
+// })
+
+//lets implement the looping using 'for'
+
+for(let count=0;count<todo.length;count++){
+    console.log(`${count+1}.${todo[count]}`)
+}
