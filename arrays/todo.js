@@ -29,5 +29,14 @@ const removeobj=function(todo,text){
  
 }
 
-removeobj(todo,"order food!!!!!")
-console.log(todo)
+// removeobj(todo,"order food!!!!!")
+// console.log(todo)
+
+//lets filter through our todo's
+const filterTodo=function(todos){
+    return  todos.filter(function(item){
+       return  item.completed===false
+    })
+}
+
+console.log(filterTodo(todo))
