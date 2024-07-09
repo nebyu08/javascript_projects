@@ -50,7 +50,7 @@ const note_obj=[
         body:'wake up earl and do execercise',
     },
     {
-        title:'take a shower',
+        title:'take do shower',
         body:'make sure to take a cold shower'
     },
     {
@@ -60,25 +60,44 @@ const note_obj=[
 ]
 
 
+// const noteFinder=function(note,text){
+//    const index=note.findIndex(function(item){
+//         return item.title.toLowerCase() === text.toLowerCase() //lets make it not sensitive to case
+//    })
+
+//     return note[index]
+// }   
+
+
 const noteFinder=function(note,text){
-   const index=note.findIndex(function(item){
-        return item.title.toLowerCase() === text.toLowerCase() //lets make it not sensitive to case
-   })
+    const obj=note.find(function(item){
+         return item.title.toLowerCase() === text.toLowerCase() //lets make it not sensitive to case
+    })
+ 
+     return obj
+ }  
 
-    return note[index]
-}   
+//console.log(noteFinder(note_obj,"Take a shower"))
 
-console.log(noteFinder(note_obj,"Take a shower"))
+//let start filtering through the array
+const newObj=note_obj.filter(function(item){
+    const ismatchtitle=item.title.toLowerCase().includes('do')  //lets filter through our title
+    const ismatchingbody=item.body.toLowerCase().includes('do') //lets filter through body
+
+    return ismatchtitle|| ismatchingbody
+})
+
+//console.log(newObj)
 
 
-//console.log(note_obj.length)
-//console.log(note_obj)
+//lets make the filtering code we wrote into a function
+const findnotes=function(arrays,query){
+    return arrays.filter(function(item){
+        const ismatchtitle=item.title.toLowerCase().includes(query.toLowerCase())  //lets filter through our title
+        const ismatchingbody=item.body.toLowerCase().includes(query.toLowerCase()) //lets filter through body
+    
+        return ismatchtitle|| ismatchingbody
+    })
+}
 
-//console.log(note_obj.indexOf())
-// const index=note_obj.findIndex(function(item,index){
-//      console.log(item)
-//      return item.title==='eat breakfast'
-
-// })
-
-//console.log(index)
+console.log(findnotes(newObj,'do'))
