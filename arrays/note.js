@@ -34,21 +34,9 @@ temp.splice(1,0,"may")
 
 temp[9]="havana"
 
-// console.log(temp)
-
 
 //lets start looping over arrays
 const array1=[1,2,3,4,5]
-
-// array1.forEach(function(item,index){
-//    console.log(`index ${index}`)
-//    console.log(`value:${item} `)
-// })
-
-//lets loop using for loop
-// for(let count=0;count<array1.length;count+=1){
-//     console.log(`${count+1}.${array1[count]}`)
-// }
 
 //lets search the values
 const notes=['note 1','note 2','note 3']
@@ -57,7 +45,6 @@ const notes=['note 1','note 2','note 3']
 
 //lets make list of objects
 const note_obj=[
-    {},
     {
         title:'morning workout',
         body:'wake up earl and do execercise',
@@ -72,14 +59,26 @@ const note_obj=[
     }
 ]
 
-console.log(note_obj.length)
+
+const noteFinder=function(note,text){
+   const index=note.findIndex(function(item){
+        return item.title.toLowerCase() === text.toLowerCase() //lets make it not sensitive to case
+   })
+
+    return note[index]
+}   
+
+console.log(noteFinder(note_obj,"Take a shower"))
+
+
+//console.log(note_obj.length)
 //console.log(note_obj)
 
 //console.log(note_obj.indexOf())
-const index=note_obj.findIndex(function(item,index){
-     console.log(item)
-     return item.title==='eat breakfast'
+// const index=note_obj.findIndex(function(item,index){
+//      console.log(item)
+//      return item.title==='eat breakfast'
 
-})
+// })
 
-console.log(index)
+//console.log(index)
