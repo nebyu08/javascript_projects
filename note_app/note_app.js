@@ -1,18 +1,18 @@
-//lets use DOM to manipulate the html document
+const note_obj=[
+    {
+        title:'morning workout',
+        body:'wake up earl and do execercise',
+    },
+    {
+        title:'take do shower',
+        body:'make sure to take a cold shower'
+    },
+    {
+        title:'eat breakfast',
+        body:'eat a healthy breakfast'
+    }
+]
 
-//for searching and removing the first found element
-const p=document.querySelector('p')
-//p.remove()
-
-//for searching and removing all the elements
-const ps=document.querySelectorAll('p')   //but this return a list of all available
-ps.forEach(function(item){
-    // item.textContent='*********'    //this for altering the content of the paragraph
-    console.log(item.textContent)
-    item.remove()
+document.querySelector('button').addEventListener('click',function(e){
+  e.target.textContent='button clicked'
 })
-
-//lets add element into the DOM
-const newParagraph=document.createElement('p')
-newParagraph.textContent='this is new added element that was created in javascript'
-document.querySelector('body').append(newParagraph)
