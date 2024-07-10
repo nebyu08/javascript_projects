@@ -21,10 +21,7 @@ let todo=[
    }
 ]
 
-document.querySelector('button').addEventListener('click',function(){
+document.querySelector('#add_todo').addEventListener('click',function(){
    console.log('adding new todo')
 
-// const p=document.createElement('p')
-// p.textContent='added a new todo'
-// document.querySelector('body').appendChild(p)
 })
