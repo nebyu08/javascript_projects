@@ -2,15 +2,15 @@
 let todo=[
     {
         text:"order food",
-        completed:false
+        completed:true
     },
     {
         text:'meet up with friends',
-        completed:false
+        completed:true
     },
     {
         text:'go out for walk',
-        completed:true
+        completed:false
     },
     {
         text:'morning exercise',
@@ -39,4 +39,21 @@ const filterTodo=function(todos){
     })
 }
 
-console.log(filterTodo(todo))
+//console.log(filterTodo(todo))
+
+//lets start sorting
+const sortTodos=function(arrays){
+    arrays.sort(function(a,b){
+        if(a.completed===false && b.completed===true ){
+            return -1
+        }
+        else if(b.completed===false && a.completed===true ){
+            return 1
+        }
+        else{
+            return 0
+        }
+    })
+}
+sortTodos(todo)
+console.log(todo)
