@@ -24,14 +24,23 @@ let todo=[
 
 //variable that we are going to search over
 const todoSearch={
-    'todos':''
+    todos:'',
+    hidecompleted:false
+
 }
 
-const searchTodo=function(todos,search){
-   const filtered= todos.filter(function(todo){
+const renderToDo=function(todos,search){
+   let filtered= todos.filter(function(todo){
+        // const SearchText=
+        // const hideButtonMatched=
+        // return SearchText&&hideButtonMatched
         return todo.text.toLowerCase().includes(search.todos.toLowerCase())
     })
-    
+
+    filtered=filtered.filter(function(item){
+        return !search.hidecompleted || !item.completed
+    })    
+
     const Incomplete=filtered.filter(function(item){
         return !item.completed
     })
@@ -54,12 +63,12 @@ const searchTodo=function(todos,search){
     }
 
 
-searchTodo(todo,todoSearch)
+renderToDo(todo,todoSearch)
 
 document.querySelector('#search_todo').addEventListener('input',function(e){
     const tempVariable=e.target.value
     todoSearch.todos=tempVariable
-    searchTodo(todo,todoSearch)
+    renderToDo(todo,todoSearch)
 })
 
 document.querySelector("#id_form").addEventListener('submit',function(e){
@@ -71,4 +80,11 @@ document.querySelector("#id_form").addEventListener('submit',function(e){
     //lets render what we have so far in our todo
     searchTodo(todo,todoSearch)
     e.target.elements.todo_form.value=''
+})
+
+
+//event listner for the checkbox
+document.querySelector('#todo_checkbox').addEventListener('change',function(e){
+    todoSearch.hidecompleted=e.target.checked
+    renderToDo(todo,todoSearch)
 })
