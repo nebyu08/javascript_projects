@@ -41,17 +41,16 @@ document.querySelector('#create_note').addEventListener('click',function(e){
   e.target.textContent='button clicked'
 })
 
-document.querySelector('#remove_note').addEventListener('click',function(){
-   document.querySelectorAll('.note').forEach(function(note){
-    note.remove()
-   })
-})
-
 //handle input
 document.querySelector('#input_id').addEventListener('input',function(e){
     filterSearch.textSearch= e.target.value
     //called when user interacts with the page
     filterNote(note_obj,filterSearch)
+})
 
-
+//handle form
+document.querySelector('#form').addEventListener('submit',function(e){
+    e.preventDefault()
+    console.log(e.target.elements.Fname.value)
+    e.target.elements.Fname.value=''
 })
