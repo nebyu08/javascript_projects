@@ -48,9 +48,6 @@ document.querySelector('#input_id').addEventListener('input',function(e){
     filterNote(note_obj,filterSearch)
 })
 
-//handle form
-document.querySelector('#form').addEventListener('submit',function(e){
-    e.preventDefault()
-    console.log(e.target.elements.Fname.value)
-    e.target.elements.Fname.value=''
+document.querySelector('#exp').addEventListener('change',function(e){
+    console.log(e.target.checked)
 })
