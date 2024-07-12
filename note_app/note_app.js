@@ -1,24 +1,18 @@
-const note_obj=[
-    {
-        title:'morning workout',
-        body:'wake up earl and do execercise',
-    },
-    {
-        title:'take do shower',
-        body:'make sure to take a cold shower'
-    },
-    {
-        title:'eat breakfast',
-        body:'eat a healthy breakfast'
-    }
+let notes=[
+
 ]
+const NoteJson=localStorage.getItem('notes')
+//update notes from localstorage is available
+if(NoteJson!==null){
+    notes=JSON.parse(NoteJson)
+}
 
 //lets create variable that can be used for searching
 const filterSearch={
     'textSearch':''
 }
 
-const filterNote=function(notes,search){
+const renderNote=function(notes,search){
     const filtered = notes.filter(function(note){
         return note.title.toLowerCase().includes(search.textSearch.toLowerCase())
     })
@@ -29,23 +23,35 @@ const filterNote=function(notes,search){
     //lets print values in the paragraph section 
    filtered.forEach(function(note){
     const newP=document.createElement('p')
-    newP.textContent=note.title
+    if(note.title.length>0){
+        newP.textContent=note.title
+    }else{
+        newP.textContent='UNNAMED NOTE'
+    }
+    
     document.querySelector('#notes').appendChild(newP)
    })
 }
 
+
 //somthing shows up before user interacts with the page
-filterNote(note_obj,filterSearch)
+renderNote(notes,filterSearch)
 
 document.querySelector('#create_note').addEventListener('click',function(e){
-  e.target.textContent='button clicked'
+    //when ever the button is clicked add note to the local storage
+    notes.push({
+        title:'',
+        body:''
+    })
+    localStorage.setItem('notes',JSON.stringify(notes))
+    renderNote(notes,filterSearch)
 })
 
 //handle input
 document.querySelector('#input_id').addEventListener('input',function(e){
     filterSearch.textSearch= e.target.value
     //called when user interacts with the page
-    filterNote(note_obj,filterSearch)
+    renderNote(notes,filterSearch)
 })
 
 //select dropdown items
