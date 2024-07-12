@@ -48,6 +48,7 @@ document.querySelector('#input_id').addEventListener('input',function(e){
     filterNote(note_obj,filterSearch)
 })
 
-document.querySelector('#exp').addEventListener('change',function(e){
-    console.log(e.target.checked)
+//select dropdown items
+document.querySelector('#drop_down').addEventListener('change',function(e){
+    console.log(e.target.value)
 })
