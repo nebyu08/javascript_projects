@@ -78,7 +78,7 @@ document.querySelector("#id_form").addEventListener('submit',function(e){
     //lets add the value into the todo
     todo.push({text:text,completed:false})
     //lets render what we have so far in our todo
-    searchTodo(todo,todoSearch)
+    renderToDo(todo,todoSearch)
     e.target.elements.todo_form.value=''
 })
 
