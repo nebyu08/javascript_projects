@@ -1,38 +1,11 @@
-let notes=[
+//localStorage.clear()
 
-]
-const NoteJson=localStorage.getItem('notes')
-//update notes from localstorage is available
-if(NoteJson!==null){
-    notes=JSON.parse(NoteJson)
-}
+let notes=loadNotes()   //loads notes from localstorage
 
 //lets create variable that can be used for searching
 const filterSearch={
     'textSearch':''
 }
-
-const renderNote=function(notes,search){
-    const filtered = notes.filter(function(note){
-        return note.title.toLowerCase().includes(search.textSearch.toLowerCase())
-    })
-    
-    //lets clear the previous element search result
-    document.querySelector('#notes').innerHTML=''
-    
-    //lets print values in the paragraph section 
-   filtered.forEach(function(note){
-    const newP=document.createElement('p')
-    if(note.title.length>0){
-        newP.textContent=note.title
-    }else{
-        newP.textContent='UNNAMED NOTE'
-    }
-    
-    document.querySelector('#notes').appendChild(newP)
-   })
-}
-
 
 //somthing shows up before user interacts with the page
 renderNote(notes,filterSearch)
@@ -43,7 +16,7 @@ document.querySelector('#create_note').addEventListener('click',function(e){
         title:'',
         body:''
     })
-    localStorage.setItem('notes',JSON.stringify(notes))
+    saveNotes(notes)
     renderNote(notes,filterSearch)
 })
 
