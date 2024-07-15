@@ -19,7 +19,7 @@ const removeNote=function(id){
         return id===note.id
        })
 
-       if(Search_id>1){
+       if(Search_id>-1){
         notes.splice(Search_id,1)
        }
 }
