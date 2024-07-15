@@ -13,6 +13,7 @@ renderNote(notes,filterSearch)
 document.querySelector('#create_note').addEventListener('click',function(e){
     //when ever the button is clicked add note to the local storage
     notes.push({
+        id:uuid.v4(),
         title:'',
         body:''
     })

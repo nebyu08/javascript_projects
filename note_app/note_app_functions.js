@@ -1,3 +1,7 @@
+//  <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+
+//console.log(uuid.v4())
+
 //this functions load previous values of stored note
 const loadNotes=function(){
     const NoteJson=localStorage.getItem('notes')
