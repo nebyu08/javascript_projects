@@ -1,4 +1,4 @@
-const todo=loadData()
+let todo=loadData()
 
 const todoSearch={
     todos:'',
@@ -18,7 +18,7 @@ document.querySelector("#id_form").addEventListener('submit',function(e){
     e.preventDefault()
 
     const text=e.target.elements.todo_form.value
-    console.log(text)
+    //console.log(text)
 
     //lets add the value into the todo
     todo.push({text:text,
