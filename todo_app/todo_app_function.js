@@ -10,8 +10,8 @@ const loadData=function(){
 }
 
 //add todos to local storage
-const addDataStore=function(todo){
-    localStorage.setItem('todos',JSON.stringify(todo))
+const addDataStore=function(todos){
+    localStorage.setItem('todos',JSON.stringify(todos))
 }
 
 //render todos
@@ -44,8 +44,20 @@ const renderToDo=function(todos,search){
  
      }
 
+//remove elements from Todo's
+const removeTodo=function(todo_id){
+    const search_todo=todo.findIndex(function(item){
+        return item.id===todo_id
+    })
+
+    if(search_todo>1){
+        todo.splice(search_todo,1)
+    }
+}     
+
+
  //Generate DOM
-const generateDom=function(todo){
+const generateDom=function(add_todo){
     const newTodo=document.createElement('div')
     const ps=document.createElement('span')
     const checkBox=document.createElement('input')
@@ -57,7 +69,17 @@ const generateDom=function(todo){
 
     button.textContent='x'
 
-    ps.textContent=todo.text
+    //lets add event listner
+    button.addEventListener('click',function(){
+        //lets remove based on id
+        removeTodo(add_todo.id)
+        //lets save to localstorage
+        addDataStore(todo)
+        //lets display the todo's
+        renderToDo(todo,todoSearch)
+    })
+
+    ps.textContent=add_todo.text
     
     newTodo.append(checkBox)
     newTodo.appendChild(ps)
