@@ -1,5 +1,4 @@
 //localStorage.clear()
-
 let notes=loadNotes()   //loads notes from localstorage
 
 //lets create variable that can be used for searching
@@ -12,13 +11,18 @@ renderNote(notes,filterSearch)
 
 document.querySelector('#create_note').addEventListener('click',function(e){
     //when ever the button is clicked add note to the local storage
+    const ids=uuid.v4()
+
+    console.log(ids)
+
     notes.push({
-        id:uuid.v4(),
+        id:ids,
         title:'',
         body:''
     })
+    
     saveNotes(notes)
-    renderNote(notes,filterSearch)
+    location.assign(`/note.html#${ids}`)
 })
 
 //handle input

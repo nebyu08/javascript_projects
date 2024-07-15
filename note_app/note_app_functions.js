@@ -14,7 +14,6 @@ const saveNotes=function(notes){
     localStorage.setItem('notes',JSON.stringify(notes))
 }
 
-
 const removeNote=function(id){
        const Search_id=notes.findIndex(function(note){
         return id===note.id
@@ -28,7 +27,7 @@ const removeNote=function(id){
 //generate DOM structure
 const generateDom=function(note){
     const newNote=document.createElement('div')
-    const newText=document.createElement('span')
+    const newText=document.createElement('a')
     const button=document.createElement('button')
     
     button.textContent='x'
@@ -45,7 +44,8 @@ const generateDom=function(note){
     }else{
         newText.textContent='Unnamed Notes'
     }
-   
+
+    newText.setAttribute('href',`/note.html#${note.id}`)
     newNote.appendChild(newText)
 
     return newNote
