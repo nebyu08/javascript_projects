@@ -21,7 +21,10 @@ document.querySelector("#id_form").addEventListener('submit',function(e){
     console.log(text)
 
     //lets add the value into the todo
-    todo.push({text:text,completed:false})
+    todo.push({text:text,
+        completed:false,
+        id:uuid.v4()
+    })
     
 
     //lets add to the localstorage 
