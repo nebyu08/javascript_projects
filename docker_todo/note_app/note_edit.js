@@ -46,25 +46,13 @@ window.addEventListener('storage',function(e){
     }
 })
 
-// const now=moment()
-// console.log(now.toString())
-// now.add(1,'week').add(20,'days')
-// console.log(now.toString())
+const now=moment()
+console.log(now.toString())
+now.add(1,'week').add(20,'days')
+console.log(now.toString())
 
-// //lets display some stuff
-// console.log(now.format("MMMM,Do, YYYY"))
+//lets display some stuff
+console.log(now.format("MMMM,Do, YYYY"))
 
-// //lets check out from now
-
-// //lets check value from our timestamp
-// const timeStamp=now.valueOf()
-// //turn it back to moment object
-// console.log(`the time is ${moment(timeStamp).toString()}`)
-
-
-let mydate=moment()
-mydate.year(1992)
-mydate.month(1)
-mydate.date(26)
-
-console.log(mydate.format('MMM D,YYYY'))
+//lets check out from now
+console.log(now.fromNow())
