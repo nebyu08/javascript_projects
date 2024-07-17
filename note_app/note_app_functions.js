@@ -65,3 +65,7 @@ const renderNote=function(notes,search){
         document.querySelector('#notes').appendChild(newP)
    })
 }
+
+const generateLastEdited=function(timestamp){
+   return  `last seen ${moment(timestamp).fromNow()}`
+}
