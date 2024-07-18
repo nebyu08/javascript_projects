@@ -51,7 +51,53 @@ const generateDom=function(note){
     return newNote
 }
 
+const sortMethod=function(notes,sortby){
+    if(sortby==='lastEdited'){
+        return notes.sort(function(a,b){
+            if(a.updated_at>b.updated_at){
+                return -1
+            }else if(b.updated_at>a.updated_at){
+                1
+            }else{
+                0
+            }
+        })
+    }
+    else if(sortby==='RecentlyAdded') {
+        return notes.sort(function(a,b){
+            if(a.created_at>b.created_at){
+                return -1
+            }
+            else if(b.created_at>a.created_at){
+                return 1
+            }
+            else{
+                return 0
+            }
+        })
+    }
+    else if(sortby==='Alphabetically'){
+        return notes.sort(function(a,b){
+            if(a.title.toLowerCase()<b.title.toLowerCase()){
+                return -1
+            }
+            else if(b.title.toLowerCase()<a.title.toLowerCase()){
+                return 1
+            }
+            else{
+                return 0
+            }
+        })
+    }else{
+        return notes
+    }
+}
+
+
 const renderNote=function(notes,search){
+    //sorting the notes by somearrangment
+    notes=sortMethod(notes,search.sortBy)
+
     const filtered = notes.filter(function(note){
         return note.title.toLowerCase().includes(search.textSearch.toLowerCase())
     })

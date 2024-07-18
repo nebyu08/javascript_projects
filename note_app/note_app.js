@@ -3,7 +3,8 @@ let notes=loadNotes()   //loads notes from localstorage
 
 //lets create variable that can be used for searching
 const filterSearch={
-    'textSearch':''
+    textSearch:'',
+    sortBy:'lastEdited'
 }
 
 //somthing shows up before user interacts with the page
@@ -18,7 +19,9 @@ document.querySelector('#create_note').addEventListener('click',function(e){
     notes.push({
         id:ids,
         title:'',
-        body:''
+        body:'',
+        created_at:moment().valueOf(),
+        updated_at:moment().valueOf()
     })
     
     saveNotes(notes)
@@ -33,6 +36,7 @@ document.querySelector('#input_id').addEventListener('input',function(e){
 })
 
 //select dropdown items
-document.querySelector('#drop_down').addEventListener('change',function(e){
-    console.log(e.target.value)
+document.querySelector('#filter-by').addEventListener('change',function(e){
+    filterSearch.sortBy=e.target.value
+    renderNote(notes,filterSearch)  
 })
